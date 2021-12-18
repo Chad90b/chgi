@@ -1,422 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <style type="text/css">
-html {background-color:#171D26;color:#E0E0E0;}
-span.g	{display:inline-block;color:#418DD9;background-color:#113456;border-radius:6px;padding:4px;margin:2px;font-weight:bold}
-span.sp	{display:inline-block;color:#B16B50;background-color:#362118;border-radius:6px;padding:4px;margin:2px;font-weight:bold}
-span.se	{display:inline-block;color:#B157B7;background-color:#451F47;border-radius:6px;padding:4px;margin:2px;font-weight:bold}
-span.st {display:inline-block;color:#6F66D6;background-color:#1D1858;border-radius:6px;padding:4px;margin:2px;font-weight:bold}
-span.ch	{display:inline-block;color:#36A158;background-color:#1B3C21;border-radius:6px;padding:4px;margin:2px;font-weight:bold}
-.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
-.tg td{border-color:#222c3d ;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:1px 4px;word-break:normal;}
-.tg th{border-color:#222c3d ;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:1px 4px;word-break:normal;}
-.tg .tg-z9qy{border-color:#222c3d ;font-family:Verdana, Geneva, sans-serif !important;;color:#E0E0E0;font-size:medium;font-weight:bold;
-  position:-webkit-sticky;position:sticky;text-align:left;top:-1px;vertical-align:top;will-change:transform}
-.tg .tg-rax8{border-color:#222c3d ;font-family:Verdana, Geneva, sans-serif !important;;color:#E0E0E0;font-size:medium;font-weight:bold;
-  position:-webkit-sticky;position:sticky;text-align:center;top:-1px;vertical-align:top;will-change:transform}
-.tg .tg-ix6g{border-color:#222c3d ;font-family:Verdana, Geneva, sans-serif !important;;text-align:center;vertical-align:top}
-.tg .tg-r0kq{border-color:#222c3d ;font-family:Verdana, Geneva, sans-serif !important;;text-align:left;vertical-align:top}
-.tg-sort-header::-moz-selection{background:0 0}
-.tg-sort-header::selection{background:0 0}.tg-sort-header{cursor:pointer}
-.tg-sort-header:after{content:'';float:right;margin-top:7px;border-width:0 5px 5px;border-style:solid;
-  border-color:#222c3d  transparent;visibility:hidden}
-.tg-sort-header:hover:after{visibility:visible}
-.tg-sort-asc:after,.tg-sort-asc:hover:after,.tg-sort-desc:after{visibility:visible;opacity:.4}
-.tg-sort-desc:after{border-bottom:none;border-width:5px 5px 0}@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
-<div class="tg-wrap"><table id="tg-stJis" class="tg" style="undefined;table-layout: fixed; width: 780px">
+html {background-color:#1d242f;color:#E0E0E0;}
+/* all rows */
+.tg				{font-family:"Trebuchet MS", Helvetica, sans-serif !important;;font-size:medium;border-color:#ccc;border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.tg td			{font-family:"Trebuchet MS", Helvetica, sans-serif !important;;font-size:medium;border-color:#141B25;border-style:solid;border-width:1px;color:#E0E0E0;overflow:hidden;padding:0px 0px;word-break:normal;}
+.tg .tg-trb		{overflow:hidden;position:relative;}
+/* title row */
+.tg th			{border-color:#141B25;border-style:solid;border-width:0px;color:#E0E0E0;font-weight:normal;overflow:hidden;position:absolute;z-index:10;padding:5px;word-break:normal;}
+.tg .tg-tcen	{font-weight:bold;position:-webkit-sticky;position:sticky;text-align:center;top:-1px;vertical-align:top;will-change:transform;background: rgba(147,159,212, 0.2);}
+.tg .tg-tlef	{font-weight:bold;position:-webkit-sticky;position:sticky;text-align:left;top:-1px;vertical-align:top;will-change:transform;background: rgba(147,159,212, 0.2);}
+/* even row */
+.tg .tg-erat	{text-align:center;vertical-align:middle;background:rgba(20,27,37, 0.5);}
+.tg .tg-epre	{text-align:center;vertical-align:top;background: rgba(20,27,37, 0.5);max-height:160px;max-width:200px;display:flex;align-items: center;justify-content:center;padding:0 0;border-radius:5%;}
+.tg .tg-enam	{text-align:left;vertical-align:middle;background: rgba(20,27,37, 0.5);padding:5px;}
+.tg .tg-ecre	{text-align:left;vertical-align:middle;background: rgba(20,27,37, 0.5);padding:5px;}
+.tg .tg-eser	{text-align:left;vertical-align:middle;background: rgba(20,27,37, 0.5);padding:5px;}
+/* odd row */
+.tg .tg-orat	{text-align:center;vertical-align:middle;background: rgba(20,27,37, 0.01);color: rgba(0, 0, 0, 0.0);}
+.tg .tg-opre	{text-align:center;vertical-align:top;background: rgba(20,27,37, 0.01);max-height:160px;max-width:200px;display:flex;align-items: center;justify-content:center;padding:0 0;border-radius:5%;}
+.tg .tg-onam	{text-align:left;vertical-align:middle;background: rgba(20,27,37, 0.01);padding:5px;}
+.tg .tg-ocre	{text-align:left;vertical-align:middle;background: rgba(20,27,37, 0.01);padding:5px;}
+.tg .tg-oser	{text-align:left;vertical-align:middle;background: rgba(20,27,37, 0.01);padding:5px;}
+/* sort rows */
+.tg-sort-header::-moz-selection	{background:0 0}
+.tg-sort-header::selection		{background:0 0}.tg-sort-header{cursor:pointer}
+.tg-sort-header:after			{content:'';float:right;margin-top:7px;border-width:0 5px 5px;border-style:solid;border-color:#141B25 transparent;visibility:hidden;}
+.tg-sort-header:hover:after		{visibility:visible;}
+.tg-sort-asc:after,.tg-sort-asc:hover:after,.tg-sort-desc:after	{visibility:visible;opacity:.4;}
+.tg-sort-desc:after				{border-bottom:none;border-width:5px 5px 0}@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}
+/* other */
+.ipre		{height:100%;width:100%;object-fit:contain;position:relative;z-index:1;}
+.irat		{max-width:100px;width:100px;position:relative;z-index:1;}
+span		{color:#e0e0e0;opacity:100%!important;}
+[class^="r"]{color:rgba(0,0,0,0)!important;}
+span.gen	{display:inline-block;color:#418DD9;background-color:#113456;border-color:#418DD9;border-width:1px;border-style:solid;;border-radius:5px;padding:3px 8px 4px 6px;margin:4px;font-weight:bold}
+span.shi	{display:inline-block;color:#B9B541;background-color:#4B491C;border-color:#B9B541;border-width:1px;border-style:solid;;border-radius:5px;padding:3px 8px 4px 6px;margin:4px;font-weight:bold}
+span.cha	{display:inline-block;color:#4AA158;background-color:#1B3C21;border-color:#4AA158;border-width:1px;border-style:solid;;border-radius:5px;padding:3px 8px 4px 6px;margin:4px;font-weight:bold}
+span.spe	{display:inline-block;color:#B16B50;background-color:#362118;border-color:#B16B50;border-width:1px;border-style:solid;;border-radius:5px;padding:3px 8px 4px 6px;margin:4px;font-weight:bold}
+span.cre	{display:inline-block;color:#D45460;background-color:#4F181D;border-color:#D45460;border-width:1px;border-style:solid;;border-radius:5px;padding:3px 8px 4px 6px;margin:4px;font-weight:bold}
+span.stu	{display:inline-block;color:#6F66D6;background-color:#1D1858;border-color:#6F66D6;border-width:1px;border-style:solid;;border-radius:5px;padding:3px 8px 4px 6px;margin:4px;font-weight:bold}
+span.ser	{display:inline-block;color:#B157B7;background-color:#451F47;border-color:#B157B7;border-width:1px;border-style:solid;;border-radius:5px;padding:3px 8px 4px 6px;margin:4px;font-weight:bold}
+.r0::before	{display:inline-block;content:url(i/r0.png);}
+.r1::before	{display:inline-block;content:url(i/r1.png);}
+.r2::before	{display:inline-block;content:url(i/r2.png);}
+.r3::before	{display:inline-block;content:url(i/r3.png);}
+.r4::before	{display:inline-block;content:url(i/r4.png);}
+.r5::before	{display:inline-block;content:url(i/r5.png);}
+/*backup:.r5::before{display:inline-block;text-rendering:auto;font-family:Segoe UI Emoji, Symbola;-webkit-font-smoothing:antialiased;content:"\01f535";}*/
+</style>
+</head>
+<body>
+<div class="tg-wrap"><table id="tg-gTM1F" class="tg" style="undefined;table-layout:fixed; width:1350px;">
 <colgroup>
-<col style="width: 210px">
-<col style="width: 435px">
-<col style="width: 125px">
+<col style="width: 120px">
+<col style="width: 200px">
+<col style="width: 500px">
+<col style="width: 250px">
+<col style="width: 290px">
 </colgroup>
 <thead>
-  <tr>
-    <th class="tg-rax8">PREVIEW</th>
-    <th class="tg-z9qy">NAME</th>
-    <th class="tg-z9qy">RATING</th>
-  </tr>
+<tr class="tg-trh">
+	<th class="tg-tcen">RATING</th>
+	<th class="tg-tcen">PREVIEW</th>
+	<th class="tg-tlef">CHARACTER, NAME or DESCRIPTION</th>
+	<th class="tg-tlef">CREATOR or OWNER</th>
+	<th class="tg-tlef">SERIES or UNIVERSE</th>
+</tr>
 </thead>
 <tbody>
-  <tr>
-    <td class="tg-ix6g"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flh3.googleusercontent.com%2FDkoZJb8dGLJrM9-cg68ofJuqgp1lAzL_Y8xBd1qPGqk77CdOujNnmk6thI8f5dhoprsirbXR_KuKHPbadobVzV9XNqtWEmaGTg%3Dw960-rj-nu-e365&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Judy Hopps</span><span class="g">dumb bunny</span><br><span class="st">Disney</span><span class="se">Zootopia</span></td>
-    <td class="tg-r0kq" style="font-weight:bold;color:gold">10/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.e621.net%2Fdata%2Fsample%2F2e%2F91%2F2e919758221af99c4837170893440210.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Nick Wilde</span><span class="g">sly fox</span><br><span class="st">Disney</span><span class="se">Zootopia</span></td>
-    <td class="tg-r0kq" style="font-weight:bold;color:gold">4/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fdisney%2Fimages%2F1%2F1f%2FProfile_-_Lilo.png%2Frevision%2Flatest%3Fcb%3D20190312072611&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Lilo Pelekai</span><br><span class="st">Disney</span><span class="se">Lilo & Stitch</span></td>
-    <td class="tg-r0kq" style="font-weight:bold;color:gold">5/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2Fkjevvf16nsw41.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Renamon</span><br><span class="st">Bandai</span><span class="se">Digimon</span></td>
-    <td class="tg-r0kq" style="font-weight:bold;color:gold">4/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2F8b%2F8b%2Fec%2F8b8becf5c4d8a900dba0a9e9ce923d10.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Rika Nonaka</span><br><span class="st">Bandai</span><span class="se">Digimon</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-OKItAGOkNsU%2FUC856gpzoWI%2FAAAAAAAAAVM%2FZ8CJQ71cRfQ%2Fs1600%2Ftumblr_m7grgoDI1d1qg1ss7.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Kari Kamiya</span><br><span class="st">Bandai</span><span class="se">Digimon</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F26%2Fbc%2Fa2%2F26bca2ab9927151bc88de88ade96eb98.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Gatomon</span><br><span class="st">Bandai</span><span class="se">Digimon</span></td>
-    <td class="tg-r0kq" style="font-weight:bold;color:gold">4/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Forig00.deviantart.net%2Fabd9%2Ff%2F2016%2F114%2Fd%2F2%2Fbiyomon__request__by_mitzy_chan-da00mog.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Biyomon</span><br><span class="st">Bandai</span><span class="se">Digimon</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F474x%2Fcb%2F03%2Fda%2Fcb03da43981ee90ab072a980656b092c.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Palmon</span><br><span class="st">Bandai</span><span class="se">Digimon</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpm1.narvii.com%2F7229%2F4aa1bdf11d26d0ab3d274439fedb9cd7a158d4ffr1-710-661v2_hq.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="sp">Lucario</span><br><span class="st">Nintendo</span><span class="se">Pokemon</span></td>
-    <td class="tg-r0kq" style="font-weight:bold;color:gold">4/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://vignette.wikia.nocookie.net/omniversal-battlefield/images/0/02/Ee10e1b2cfeb0b2179a6c0772bbeae0a.png/revision/latest?cb=20190311033126" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="sp">Gardevoir</span><br><span class="st">nintendo</span><span class="se">Pokemon</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe1%2F4a%2F29%2Fe14a29934d2d750b1aad235e50dfed0f.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="sp">Mawile</span><br><span class="st">Nintendo</span><span class="se">Pokemon</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6b%2F8b%2F21%2F6b8b21ed596dfbe230cc75017fcd61df.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="sp">Vaporeon</span><br><span class="st">Nintendo</span><span class="se">Pokemon</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6d%2Fbe%2F7a%2F6dbe7a741988e50405f62e25cb546af1.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="g">Eevelutions</span><span class="sp">Eevee</span><span class="sp">Jolteon</span><span class="sp">Flareon</span><span class="sp">Umbreon</span><span class="sp">Leafeon</span><span class="sp">Espeon</span><span class="sp">Glaceon</span><span class="sp">Sylveon</span><br><span class="st">Nintendo</span><span class="se">Pokemon</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Forig00.deviantart.net%2F0dfe%2Ff%2F2018%2F059%2F5%2Fe%2F5e095162ea8d3218708a78128872518b-dc4jdaw.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Misty Williams</span><br><span class="st">Nintendo</span><span class="se">Pokemon</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F73%2F27%2F77%2F7327773656e4cb68ab53c5ed54d6e4a2.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Lana</span><br><span class="st">Nintendo</span><span class="se">Pokemon</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages6.fanpop.com%2Fimage%2Fphotos%2F36700000%2FMy-Little-Pony-Friendship-is-Magic-image-my-little-pony-friendship-is-magic-36775877-650-581.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Octavia Melody</span><span class="ch">Vinyl Scratch (DJ Pon-3)</span><span class="g">VinylTavia</span><br><span class="st">Hasbro</span><span class="se">MLP:FIM</span></td>
-    <td class="tg-r0kq" style="font-weight:bold;color:gold">5/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fderpicdn.net%2Fimg%2F2020%2F2%2F20%2F2278971%2Flarge.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Rainbow Dash</span><br><span class="st">Hasbro</span><span class="se">MLP:FIM</span></td>
-    <td class="tg-r0kq" style="font-weight:bold;color:gold">4/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fd6%2F10%2Fee%2Fd610eed745c8ed8e75ae8e2a909167cf.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Twilight Sparkle</span><br><span class="st">Hasbro</span><span class="se">MLP:FIM</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>	
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.zerochan.net%2FFleur.de.Lis.full.2158418.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Fleur de Lis</span><br><span class="st">Hasbro</span><span class="se">MLP:FIM</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ffc03.deviantart.net%2Ffs70%2Ff%2F2013%2F107%2Fb%2F7%2Fprincess_cadence_by_mixipony-d6244c4.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Princess Cadance</span><br><span class="st">Hasbro</span><span class="se">MLP:FIM</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fderpicdn.net%2Fimg%2F2016%2F6%2F19%2F1182216%2Flarge.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Princes Celestia</span><span class="ch">Princes Luna</span><br><span class="st">Hasbro</span><span class="se">MLP:FIM</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Forig00.deviantart.net%2F8f5e%2Ff%2F2015%2F128%2F2%2F1%2Fthe_cutie_mark_crusaders__by_kurochhi-d8snoqg.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Scootaloo</span><span class="ch">Apple Bloom</span><span class="ch">Sweetie Belle</span><span class="g">The Cutie Mark Crusaders</span><br><span class="st">Hasbro</span><span class="se">MLP:FIM</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fart.ngfiles.com%2Fimages%2F1408000%2F1408469_piporete_mother-and-daughter.png%3Ff1598843517&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Keiko Sakmat</span><br><span class="se">Piporete</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.ixpap.com%2Fimages%2F2021%2F08%2FLola-Bunny-Wallpaper-13.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Lola Bunny</span><br><span class="st">Warner Bros</span><span class="se">Looney Tunes</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapers.gg%2Fwp-content%2Fuploads%2F2017%2F08%2FAvatar-Neytiri-1280x1280.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Neytiri te Tskaha Mo'at’ite</span><br><span class="st">James Cameron</span><span class="se">Avatar</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Ff7%2F9a%2F5a%2Ff79a5a3c908b4bc7bfdaea61a61a2a1c.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Cream the Rabbit</span><br><span class="st">Sega</span><span class="se">Sonic the Hedgehog</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn151.picsart.com%2F226817921025202.gif&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Amy Rose</span><br><span class="st">Sega</span><span class="se">Sonic the Hedgehog</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fpaw-patrol%2Fimages%2F7%2F7a%2FPaw-patrol-skye.jpg%2Frevision%2Flatest%3Fcb%3D20160204061351&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Skye</span><br><span class="st">Keith Chapman</span><span class="se">Paw Patrol</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://static.wikia.nocookie.net/paw-patrol/images/c/ca/Liberty_Movie_Book_updated.png/revision/latest/scale-to-width-down/350?cb=20210617175309" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Liberty</span><br><span class="st">Keith Chapman</span><span class="se">Paw Patrol</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fde%2Fc6%2Fdb%2Fdec6db9590f8ba0f765be7c6a93ced37--disney-fan-gadget.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Gadget Hackwrench</span><br><span class="st">Disney</span><span class="se">Chip 'n Dale Rescue Rangers</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fb9%2F09%2F81%2Fb90981c1c6e422ee20c276a31166f93a.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="g">Care Bears</span><br><span class="st">Elena Kucharik</span><span class="se">Care Bears</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fdelthompsonillustration.com%2Fwp-content%2Fuploads%2F2019%2F06%2FDragon_Tales_Cassie.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Cassie</span><br><span class="st">Sesame Workshop</span><span class="st">Columbia Tristar</span><span class="se">Dragon Tales</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn130.picsart.com%2F298745785048211.png%3Fr1024x1024&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Lisa Simpson</span><br><span class="st">Matt Groening</span><span class="st">Fox Media</span><span class="se">The Simpsons</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fp__%2Fimages%2F3%2F33%2FJeanette_Miller.png%2Frevision%2Flatest%3Fcb%3D20151120225013%26path-prefix%3Dprotagonist&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Jeanette Miller</span><br><span class="st">Bagdasarian Productions</span><span class="se">Alvin and the Chipmunks</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.writeups.org%2Fwp-content%2Fuploads%2FViolet-Parr-The-Incredibles-c.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Violet Parr</span><span class="ch">Invisigirl</span><br><span class="st">Pixar</span><span class="se">The Incredibles</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fih0.redbubble.net%2Fimage.362149538.9695%2Fflat%2C1000x1000%2C075%2Cf.u1.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Kanna Kamui</span><br><span class="st">Coolkyousinnjya</span><span class="se">Miss Kobayashi's Dragon Maid</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpyxis.nymag.com%2Fv1%2Fimgs%2Fe58%2Fc22%2Fa2d0b573ea1b554669ccc5ee2a6dd3e06f-19-frozen-2.rsquare.w700.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Elsa of Arendelle</span><br><span class="st">Disney</span><span class="se">Frozen</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2Fdsd40pdujzx41.jpg&f=1&nofb=1s" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Anna of Arendelle</span><br><span class="st">Disney</span><span class="se">Frozen</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fficquotes.com%2Fimages%2Fcharacters%2Fjasmine-aladdin-2019.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Princess Jasmine</span><br><span class="st">Disney</span><span class="se">Aladdin</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://i.kym-cdn.com/entries/icons/facebook/000/017/769/Screenshot_66.jpg" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Kim Possible</span><br><span class="st">Disney</span><span class="se">Kim Possible</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flumiere-a.akamaihd.net%2Fv1%2Fimages%2Fct_pocahontas_upcportalreskin_20694_53345657.jpeg%3Fregion%3D0%2C0%2C330%2C330&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Pocahontas</span><br><span class="st">Disney</span><span class="se">Pocahontas</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Favatarfiles.alphacoders.com%2F954%2Fthumb-1920-95430.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Izumi Sagiri</span><br><span class="st">Fushimi Tsukasa</span><span class="se">Eromanga-Sensei</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-wixmp-ed30a86b8c4ca887773594c2.wixmp.com%2Ff%2F1847db90-4f98-49bd-a136-f9f39e3a501b%2Fdec3ma4-f895ceae-4989-4ad9-866e-94185acda9a5.png%2Fv1%2Ffit%2Fw_300%2Ch_822%2Cq_70%2Cstrp%2Fduolingo___zari_by_sessp_dec3ma4-300w.jpg%3Ftoken%3DeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODIyIiwicGF0aCI6IlwvZlwvMTg0N2RiOTAtNGY5OC00OWJkLWExMzYtZjlmMzllM2E1MDFiXC9kZWMzbWE0LWY4OTVjZWFlLTQ5ODktNGFkOS04NjZlLTk0MTg1YWNkYTlhNS5wbmciLCJ3aWR0aCI6Ijw9NzA3In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.QDyr411IzAfJRU-f8X5gHJqvwtbmKvf1ijj48inMQ-g&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Zari</span><br><span class="st">Duolingo</span></td>
-    <td class="tg-r0kq">3/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages6.fanpop.com%2Fimage%2Fphotos%2F39000000%2FPrincess-Mulan-disney-princess-39040277-722-722.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Fa Mulan</span><br><span class="st">Disney</span><span class="se">Mulan</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F08%2F47%2Fe3%2F0847e3290c44680f9f8b64cc1a004e5b.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Penny</span><br><span class="st">Disney</span><span class="se">Bolt</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.petsworld.in%2Fblog%2Fwp-content%2Fuploads%2F2015%2F03%2Fbolt21.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Bolt</span><br><span class="st">Disney</span><span class="se">Bolt</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fp6.storage.canalblog.com%2F69%2F77%2F183178%2F103952247_o.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Nala</span><br><span class="st">Disney</span><span class="se">The Lion King</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages6.fanpop.com%2Fimage%2Fphotos%2F40200000%2FMoana-childhood-animated-movie-characters-40278048-496-496.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Moana Waialiki of Motunui</span><br><span class="st">Disney</span><span class="se">Moana</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ffc04.deviantart.net%2Ffs26%2Fi%2F2008%2F096%2F3%2F5%2FKida_Patch_by_Remmybear.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Kidagakash "Kida" Nedakh</span><br><span class="st">Disney</span><span class="se">Atlantis</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages6.fanpop.com%2Fimage%2Fphotos%2F34300000%2FAudrey-atlantis-34375359-1080-1080.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Audrey Ramirez</span><br><span class="st">Disney</span><span class="se">Atlantis</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fac%2F69%2F7f%2Fac697fa423fe216a820d68ac37463f2b.jpg&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Maid Marian</span><br><span class="st">Disney</span><span class="se">Robin Hood</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://static.wikia.nocookie.net/disney/images/7/77/Molly038.jpg/revision/latest/scale-to-width-down/516?cb=20111005220709" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Molly Cunningham</span><br><span class="st">Disney</span><span class="se">Tale Spin</span></td>
-    <td class="tg-r0kq">2/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimg01.deviantart.net%2Fa8cd%2Fi%2F2011%2F310%2Fc%2F9%2Ffluttershy___cute___color_by_ambris-d4eszmu.png&f=1&nofb=1" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">Fluttershy</span><br><span class="st">Hasbro</span><span class="se"MLP:FIM</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
-  <tr>
-    <td class="tg-r0kq"><img src="" alt="Image" width="180" width="180"></td>
-    <td class="tg-r0kq"><span class="ch">A</span><br><span class="st">B</span><span class="se">C</span></td>
-    <td class="tg-r0kq">1/3</td>
-  </tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r5"/><br>5</td>
+	<td class="tg-epre"><img class="ipre" src="i/judy hopps.png"></td>
+	<td class="tg-enam"><span class="cha">Judy Hopps</span><span class="gen">dumb bunny</span></td>
+	<td class="tg-ecre"><span class="stu">Disney</span></td>
+	<td class="tg-eser"><span class="ser">Zootopia</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r3"/><br>3</td>
+	<td class="tg-opre"><img class ="ipre" src="i/nick wilde.png"></td>
+	<td class="tg-onam"><span class="cha">Nick Wilde</span><span class="gen">sly fox</span></td>
+	<td class="tg-ocre"><span class="stu">Disney</span></td>
+	<td class="tg-oser"><span class="ser">Zootopia</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r5"/><br>5</td>
+	<td class="tg-epre"><img class="ipre" src="i/wildehopps.png"></td>
+	<td class="tg-enam"><span class="shi">(Ship) WildeHopps</span><span class="cha">Judy Hopps</span><span class="cha">Nick Wilde</span></td>
+	<td class="tg-ecre"><span class="stu">Disney</span></td>
+	<td class="tg-eser"><span class="ser">Zootopia</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/mrs otterton.png"></td>
+	<td class="tg-onam"><span class="cha">Mrs. Otterton</span></td>
+	<td class="tg-ocre"><span class="stu">Disney</span></td>
+	<td class="tg-oser"><span class="ser">Zootopia</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r3"/><br>3</td>
+	<td class="tg-epre"><img class="ipre" src="i/rainbow dash.png"></td>
+	<td class="tg-enam"><span class="cha">Rainbow Dash</span></td>
+	<td class="tg-ecre"><span class="stu">Hasbro</span></td>
+	<td class="tg-eser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/twilight sparkle.png"></td>
+	<td class="tg-onam"><span class="cha">Twilight Sparkle</span></td>
+	<td class="tg-ocre"><span class="stu">Hasbro</span></td>
+	<td class="tg-oser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/princess cadance.png"></td>
+	<td class="tg-enam"><span class="cha">Princess Cadance</span></td>
+	<td class="tg-ecre"><span class="stu">Hasbro</span></td>
+	<td class="tg-eser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/shining armor.png"></td>
+	<td class="tg-onam"><span class="cha">Shining Armor</span></td>
+	<td class="tg-ocre"><span class="stu">Hasbro</span></td>
+	<td class="tg-oser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class ="ipre" src="i/shiningcadance.png"></td>
+	<td class="tg-enam"><span class="shi">(Ship) ShiningCadance</span><span class="cha">Princess Cadance</span><span class="cha">Shining Armor</span></td>
+	<td class="tg-ecre"><span class="stu">Hasbro</span></td>
+	<td class="tg-eser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class="ipre" src="i/twicest.png"></td>
+	<td class="tg-onam"><span class="shi">(Ship) Twicest</span><span class="cha">Twilight Sparkle</span><span class="cha">Shining Armor</span></td>
+	<td class="tg-ocre"><span class="stu">Hasbro</span></td>
+	<td class="tg-oser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r4"/><br>4</td>
+	<td class="tg-epre"><img class="ipre" src="i/shiningtwicad.png"></td>
+	<td class="tg-enam"><span class="shi">(Ship) ShiningTwiCad</span><span class="cha">Twilight Sparkle</span><span class="cha">Princess Cadance</span><span class="cha">Shining Armor</span></td>
+	<td class="tg-ecre"><span class="stu">Hasbro</span></td>
+	<td class="tg-eser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class="ipre" src="i/princess luna.png"></td>
+	<td class="tg-onam"><span class="cha">Princess Luna</span></td>
+	<td class="tg-ocre"><span class="stu">Hasbro</span></td>
+	<td class="tg-oser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class ="ipre" src="i/princess celestia.png"></td>
+	<td class="tg-enam"><span class="cha">Princess Celestia</span></td>
+	<td class="tg-ecre"><span class="stu">Hasbro</span></td>
+	<td class="tg-eser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r3"/><br>3</td>
+	<td class="tg-opre"><img class="ipre" src="i/princest.png"></td>
+	<td class="tg-onam"><span class="shi">(Ship) Princest</span><span class="cha">Princess Luna</span>	<span class="cha">Princess Celestia</span></td>
+	<td class="tg-ocre"><span class="stu">Hasbro</span></td>
+	<td class="tg-oser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/fleur de lis.png"></td>
+	<td class="tg-enam"><span class="cha">Fleur de Lis</span></td>
+	<td class="tg-ecre"><span class="stu">Hasbro</span></td>
+	<td class="tg-eser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r3"/><br>3</td>
+	<td class="tg-opre"><img class ="ipre" src="i/octavia melody.png"></td>
+	<td class="tg-onam"><span class="cha">Octavia Melody</span></td>
+	<td class="tg-ocre"><span class="stu">Hasbro</span></td>
+	<td class="tg-oser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/vinyl scratch.png"></td>
+	<td class="tg-enam"><span class="cha">Vinyl Scratch</span><span class="cha">DJ Pon-3</span></td>
+	<td class="tg-ecre"><span class="stu">Hasbro</span></td>
+	<td class="tg-eser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r4"/><br>4</td>
+	<td class="tg-opre"><img class ="ipre" src="i/vinyltavia.png"></td>
+	<td class="tg-onam"><span class="shi">(Ship) VinylTavia</span><span class="cha">Octavia Melody</span><span class="cha">Vinyl Scratch</span></td>
+	<td class="tg-ocre"><span class="stu">Hasbro</span></td>
+	<td class="tg-oser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/apple bloom.png"></td>
+	<td class="tg-enam"><span class="cha">Apple Bloom</span></td>
+	<td class="tg-ecre"><span class="stu">Hasbro</span></td>
+	<td class="tg-eser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/sweetie belle.png"></td>
+	<td class="tg-onam"><span class="cha">Sweetie Belle</span></td>
+	<td class="tg-ocre"><span class="stu">Hasbro</span></td>
+	<td class="tg-oser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/scootaloo.png"></td>
+	<td class="tg-enam"><span class="cha">Scootaloo</span></td>
+	<td class="tg-ecre"><span class="stu">Hasbro</span></td>
+	<td class="tg-eser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/cutie mark crusaders.png"></td>
+	<td class="tg-onam"><span class="shi">(Ship) Cutie Mark Crusaders</span><span class="cha">Apple Bloom</span><span class="cha">Sweetie Belle</span><span class="cha">Scootaloo</span></td>
+	<td class="tg-ocre"><span class="stu">Hasbro</span></td>
+	<td class="tg-oser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r4"/><br>4</td>
+	<td class="tg-epre"><img class="ipre" src="i/lilo pelekai.png"></td>
+	<td class="tg-enam"><span class="cha">Lilo Pelekai</span></td>
+	<td class="tg-ecre"><span class="stu">Disney</span></td>
+	<td class="tg-eser"><span class="ser">Lilo & Stitch</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/ugf trooper2.png"></td>
+	<td class="tg-onam"><span class="gen">UGF Trooper</span></td>
+	<td class="tg-ocre"><span class="stu">Disney</span></td>
+	<td class="tg-oser"><span class="ser">Lilo & Stitch</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r3"/><br>3</td>
+	<td class="tg-epre"><img class="ipre" src="i/rika nonaka.png"></td>
+	<td class="tg-enam"><span class="cha">Rika Nonaka</span></td>
+	<td class="tg-ecre"><span class="stu">Bandai</span></td>
+	<td class="tg-eser"><span class="ser">Digimon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r4"/><br>4</td>
+	<td class="tg-opre"><img class ="ipre" src="i/renamon.png"></td>
+	<td class="tg-onam"><span class="cha">Renamon</span></td>
+	<td class="tg-ocre"><span class="stu">Bandai</span></td>
+	<td class="tg-oser"><span class="ser">Digimon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r4"/><br>4</td>
+	<td class="tg-epre"><img class="ipre" src="i/rikamon2.png"></td>
+	<td class="tg-enam"><span class="shi">(Ship) Rika-Rena</span><span class="cha">Rika Nonaka</span><span class="cha">Renamon</span></td>
+	<td class="tg-ecre"><span class="stu">Bandai</span></td>
+	<td class="tg-eser"><span class="ser">Digimon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/kari kamiya.png"></td>
+	<td class="tg-onam"><span class="cha">Kari Kamiya</span></td>
+	<td class="tg-ocre"><span class="stu">Bandai</span></td>
+	<td class="tg-oser"><span class="ser">Digimon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r4"/><br>4</td>
+	<td class="tg-epre"><img class="ipre" src="i/gatomon.png"></td>
+	<td class="tg-enam"><span class="cha">Gatomon</span></td>
+	<td class="tg-ecre"><span class="stu">Bandai</span></td>
+	<td class="tg-eser"><span class="ser">Digimon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r3"/><br>3</td>
+	<td class="tg-opre"><img class ="ipre" src="i/kagimon.png"></td>
+	<td class="tg-onam"><span class="shi">(Ship) Kari-Gato</span><span class="cha">Kari Kamiya</span><span class="cha">Gatomon</span></td>
+	<td class="tg-ocre"><span class="stu">Bandai</span></td>
+	<td class="tg-oser"><span class="ser">Digimon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r4"/><br>4</td>
+	<td class="tg-epre"><img class="ipre" src="i/renagato.png"></td>
+	<td class="tg-enam"><span class="shi">(Ship) Gato-Rena</span><span class="cha">Renamon</span><span class="cha">Gatomon</span></td>
+	<td class="tg-ecre"><span class="stu">Bandai</span></td>
+	<td class="tg-eser"><span class="ser">Digimon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/biyomon.png"></td>
+	<td class="tg-onam"><span class="cha">Biyomon</span></td>
+	<td class="tg-ocre"><span class="stu">Bandai</span></td>
+	<td class="tg-oser"><span class="ser">Digimon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/palmon.png"></td>
+	<td class="tg-enam"><span class="cha">Palmon</span></td>
+	<td class="tg-ecre"><span class="stu">Bandai</span></td>
+	<td class="tg-eser"><span class="ser">Digimon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/keiko sakmat.png"></td>
+	<td class="tg-onam"><span class="cha">Keiko Sakmat</span></td>
+	<td class="tg-ocre"><span class="cre">Piporete</span></td>
+	<td class="tg-oser"><span class="ser"></span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/lola bunny.png"></td>
+	<td class="tg-enam"><span class="cha">Lola Bunny</span></td>
+	<td class="tg-ecre"><span class="stu">Warner Bros</span></td>
+	<td class="tg-eser"><span class="ser">Looney Tunes</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/neytiri.png"></td>
+	<td class="tg-onam"><span class="cha">Neytiri</span><span class="cha">Neytiri te Tskaha Mo'at’ite</span></td>
+	<td class="tg-ocre"><span class="stu">James Cameron</span></td>
+	<td class="tg-oser"><span class="ser">Avatar</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/cream the rabbit.png"></td>
+	<td class="tg-enam"><span class="cha">Cream the Tabbit</span></td>
+	<td class="tg-ecre"><span class="stu">Sega</span></td>
+	<td class="tg-eser"><span class="ser">Sonic the Hedgehog</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/amy rose.gif"></td>
+	<td class="tg-onam"><span class="cha">Amy Rose</span></td>
+	<td class="tg-ocre"><span class="stu">Sega</span></td>
+	<td class="tg-oser"><span class="ser">Sonic the Hedgehog</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/skye.png"></td>
+	<td class="tg-enam"><span class="cha">Skye</span></td>
+	<td class="tg-ecre"><span class="stu">Keith Chapman</span></td>
+	<td class="tg-eser"><span class="ser">Paw Patrol</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/liberty.png"></td>
+	<td class="tg-onam"><span class="cha">Liberty</span></td>
+	<td class="tg-ocre"><span class="stu">Keith Chapman</span></td>
+	<td class="tg-oser"><span class="ser">Paw Patrol</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/gadget hackwrench.png"></td>
+	<td class="tg-enam"><span class="cha">Gadget Hackwrench</span></td>
+	<td class="tg-ecre"><span class="stu">Disney</span></td>
+	<td class="tg-eser"><span class="ser">Chip 'n Dale Rescue Rangers</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r3"/><br>3	</td>
+	<td class="tg-opre"><img class ="ipre" src="i/care bears.png"></td>
+	<td class="tg-onam"><span class="gen">Care Bears</span></td>
+	<td class="tg-ocre"><span class="stu">Elena Kucarik</span></td>
+	<td class="tg-oser"><span class="ser">Care Bears</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/cassie.png"></td>
+	<td class="tg-enam"><span class="cha">Cassie</span></td>
+	<td class="tg-ecre"><span class="stu">Sesame Workshop</span><span class="stu">Columbia Tristar</span></td>
+	<td class="tg-eser"><span class="ser">Dragon Tales</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r4"/><br>4</td>
+	<td class="tg-opre"><img class ="ipre" src="i/lisa simpson.png"></td>
+	<td class="tg-onam"><span class="cha">Lisa Simpson</span></td>
+	<td class="tg-ocre"><span class="stu">Matt Groening</span><span class="stu">Fox Media</span></span></td>
+	<td class="tg-oser"><span class="ser">The Simpsons</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/maggie simpson.png"></td>
+	<td class="tg-enam"><span class="cha">Maggie Simpson</span></td>
+	<td class="tg-ecre"><span class="stu">Matt Groening</span><span class="stu">Fox Media</span></td>
+	<td class="tg-eser"><span class="ser">The Simpsons</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/lisamaggie.png"></td>
+	<td class="tg-onam"><span class="shi">(Ship) Lisa-Maggie</span><span class="cha">Lisa Simpson</span><span class="cha">Maggie Simpson</span></td>
+	<td class="tg-ocre"><span class="stu">Matt Groening</span><span class="stu">Fox Media</span></span></td>
+	<td class="tg-oser"><span class="ser">The Simpsons</span></td>
+</tr>	
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/jeanette miller.png"></td>
+	<td class="tg-enam"><span class="cha">Jeanette Miller</span></td>
+	<td class="tg-ecre"><span class="stu">Bagdasarian Productions</span></td>
+	<td class="tg-eser"><span class="ser">Alvin and the Chipmunks</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/invisigirl.png"></td>
+	<td class="tg-onam"><span class="cha">Invisigirl</span><span class="cha">Violet Parr</span></td>
+	<td class="tg-ocre"><span class="stu">Pixar</span></td>
+	<td class="tg-oser"><span class="ser">The Incredibles</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/kanna kamui.png"></td>
+	<td class="tg-enam"><span class="cha">Kanna Kamui</span></td>
+	<td class="tg-ecre"><span class="stu">Coolkyousinnjya</span></td>
+	<td class="tg-eser"><span class="ser">Miss Kobaayshi's Dragon Maid</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/elsa.png"></td>
+	<td class="tg-onam"><span class="cha">Elsa</span><span class="cha">Elsa of Arendelle</span></td>
+	<td class="tg-ocre"><span class="stu">Disney</span></td>
+	<td class="tg-oser"><span class="ser">Frozen</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/anna.png"></td>
+	<td class="tg-enam"><span class="cha">Anna</span><span class="cha">Anna of Arendelle</span>
+	<td class="tg-ecre"><span class="stu">Disney</span></td>
+	<td class="tg-eser"><span class="ser">Frozen</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/elsa-anna.png"></td>
+	<td class="tg-onam"><span class="shi">(Ship) Elsa-Anna</span><span class="cha">Elsa</span><span class="cha">Anna</span></td>
+	<td class="tg-ocre"><span class="stu">Disney</span></td>
+	<td class="tg-oser"><span class="ser">Frozen</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/princess jasmine.png"></td>
+	<td class="tg-enam"><span class="cha">Princess Jasmine</span></td>
+	<td class="tg-ecre"><span class="stu">Disney</span></td>
+	<td class="tg-eser"><span class="ser">Aladdon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/kim possible.png"></td>
+	<td class="tg-onam"><span class="cha">Kim Possible</span></td>
+	<td class="tg-ocre"><span class="stu">Disney</span></td>
+	<td class="tg-oser"><span class="ser">Kim Possible</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/pocahontas.png"></td>
+	<td class="tg-enam"><span class="cha">Pocahontas</span></td>
+	<td class="tg-ecre"><span class="stu">Disney</span></td>
+	<td class="tg-eser"><span class="ser">Pocahontas</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/izumi sagiri.png"></td>
+	<td class="tg-onam"><span class="cha">Izumi Sagiri</span></td>
+	<td class="tg-ocre"><span class="stu">Fushimi Tsukasa</span></td>
+	<td class="tg-oser"><span class="ser">Eromanga-Sensei</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/zari.png"></td>
+	<td class="tg-enam"><span class="cha">Zari</span></td>
+	<td class="tg-ecre"><span class="stu">Duolongo</span></td>
+	<td class="tg-eser"><span class="ser"></span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/fa mulan.png"></td>
+	<td class="tg-onam"><span class="cha">Fa Mulan</span></td>
+	<td class="tg-ocre"><span class="stu">Disney</span></td>
+	<td class="tg-oser"><span class="ser">Mulan</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/penny.png"></td>
+	<td class="tg-enam"><span class="cha">Penny</span></td>
+	<td class="tg-ecre"><span class="stu">Disney</span></td>
+	<td class="tg-eser"><span class="ser">Bolt</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/bolt.png"></td>
+	<td class="tg-onam"><span class="cha">Bolt</span></td>
+	<td class="tg-ocre"><span class="stu">Disney</span></td>
+	<td class="tg-oser"><span class="ser">Bolt</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/nala.png"></td>
+	<td class="tg-enam"><span class="cha">Nala</span></td>
+	<td class="tg-ecre"><span class="stu">Disney</span></td>
+	<td class="tg-eser"><span class="ser">The Lion King</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/maid marian.png"></td>
+	<td class="tg-onam"><span class="cha">Maid Marian</span></td>
+	<td class="tg-ocre"><span class="stu">Disney</span></td>
+	<td class="tg-oser"><span class="ser">Robin Hood</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/molly cunningham.png"></td>
+	<td class="tg-enam"><span class="cha">Molly Cunningham</span></td>
+	<td class="tg-ecre"><span class="stu">Disney</span></td>
+	<td class="tg-eser"><span class="ser">Tale Spin</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/fluttershy.png"></td>
+	<td class="tg-onam"><span class="cha">Fluttershy</span></td>
+	<td class="tg-ocre"><span class="stu">Hasbro</span></td>
+	<td class="tg-oser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/rarity.png"></td>
+	<td class="tg-enam"><span class="cha">Rarity</span></td>
+	<td class="tg-ecre"><span class="stu">Hasbro</span></td>
+	<td class="tg-eser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/cheerilee.png"></td>
+	<td class="tg-onam"><span class="cha">Cheerilee</span></td>
+	<td class="tg-ocre"><span class="stu">Hasbro</span></td>
+	<td class="tg-oser"><span class="ser">My Little Pony</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r2"/><br>2</td>
+	<td class="tg-epre"><img class="ipre" src="i/misty williams.png"></td>
+	<td class="tg-enam"><span class="cha">Misty Williams</span></td>
+	<td class="tg-ecre"><span class="stu">Nintendo</span><span class="stu">The Pokemon Company</span></td>
+	<td class="tg-eser"><span class="ser">Pokemon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r1"/><br>1</td>
+	<td class="tg-opre"><img class ="ipre" src="i/lana.png"></td>
+	<td class="tg-onam"><span class="cha">Lana</span></td>
+	<td class="tg-ocre"><span class="stu">Nintendo</span><span class="stu">The Pokemon Company</span></td>
+	<td class="tg-oser"><span class="ser">Pokemon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r3"/><br>3</td>
+	<td class="tg-epre"><img class="ipre" src="i/lucario.png"></td>
+	<td class="tg-enam"><span class="spe">Lucario</span></td>
+	<td class="tg-ecre"><span class="stu">Nintendo</span><span class="stu">The Pokemon Company</span></td>
+	<td class="tg-eser"><span class="ser">Pokemon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r3"/><br>3</td>
+	<td class="tg-opre"><img class ="ipre" src="i/vaporeon.png"></td>
+	<td class="tg-onam"><span class="spe">Vaporeon</span></td>
+	<td class="tg-ocre"><span class="stu">Nintendo</span><span class="stu">The Pokemon Company</span></td>
+	<td class="tg-oser"><span class="ser">Pokemon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r1"/><br>1</td>
+	<td class="tg-epre"><img class="ipre" src="i/eeveelutions.png"></td>
+	<td class="tg-enam"><span class="gen">Eeveelutions</span><span class="spe">Eevee</span><span class="spe">Vaporeon</span><span class="spe">Flareon</span><span class="spe">Jolteon</span><span class="spe">Umbreon</span><span class="spe">Espeon</span><span class="spe">Glaceon</span><span class="spe">Leafeon</span><span class="spe">Sylveon</span></td>
+	<td class="tg-ecre"><span class="stu">Nintendo</span><span class="stu">The Pokemon Company</span></td>
+	<td class="tg-eser"><span class="ser">Pokemon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/gardevoir.png"></td>
+	<td class="tg-onam"><span class="spe">Gardevoir</span></td>
+	<td class="tg-ocre"><span class="stu">Nintendo</span><span class="stu">The Pokemon Company</span></td>
+	<td class="tg-oser"><span class="ser">Pokemon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r3"/><br>3</td>
+	<td class="tg-epre"><img class="ipre" src="i/mawile.png"></td>
+	<td class="tg-enam"><span class="spe">Mawile</span></td>
+	<td class="tg-ecre"><span class="stu">Nintendo</span><span class="stu">The Pokemon Company</span></td>
+	<td class="tg-eser"><span class="ser">Pokemon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r3"/><br>3</td>
+	<td class="tg-opre"><img class ="ipre" src="i/audino.png"></td>
+	<td class="tg-onam"><span class="spe">Audino</span></td>
+	<td class="tg-ocre"><span class="stu">Nintendo</span><span class="stu">The Pokemon Company</span></td>
+	<td class="tg-oser"><span class="ser">Pokemon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r3"/><br>3</td>
+	<td class="tg-epre"><img class="ipre" src="i/lugia.png"></td>
+	<td class="tg-enam"><span class="spe">Lugia</span></td>
+	<td class="tg-ecre"><span class="stu">Nintendo</span><span class="stu">The Pokemon Company</span></td>
+	<td class="tg-eser"><span class="ser">Pokemon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r2"/><br>2</td>
+	<td class="tg-opre"><img class ="ipre" src="i/vulpix.png"></td>
+	<td class="tg-onam"><span class="spe">Vulpix</span></td>
+	<td class="tg-ocre"><span class="stu">Nintendo</span><span class="stu">The Pokemon Company</span></td>
+	<td class="tg-oser"><span class="ser">Pokemon</span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r3"/><br>3</td>
+	<td class="tg-epre"><img class="ipre" src="i/latias.png"></td>
+	<td class="tg-enam"><span class="spe">Latias</span></td>
+	<td class="tg-ecre"><span class="stu">Nintendo</span><span class="stu">The Pokemon Company</span></td>
+	<td class="tg-eser"><span class="ser">Pokemon</span></td>
+</tr>
+<!--
+<tr class="tg-trb">
+	<td class="tg-erat"><br><span class="r0"/><br>0</td>
+	<td class="tg-epre"><img class="ipre" src="i/p.png"></td>
+	<td class="tg-enam"><span class="cha"></span></td>
+	<td class="tg-ecre"><span class="stu"></span></td>
+	<td class="tg-eser"><span class="ser"></span></td>
+</tr>
+<tr class="tg-trb">
+	<td class="tg-orat"><br><span class="r0"/><br>0</td>
+	<td class="tg-opre"><img class ="ipre" src="i/p.png"></td>
+	<td class="tg-onam"><span class="cha"></span></td>
+	<td class="tg-ocre"><span class="stu"></span></td>
+	<td class="tg-oser"><span class="ser"></span></td>
+</tr>
+-->
 </tbody>
 </table></div>
 <script charset="utf-8">var TGSort=window.TGSort||function(n){"use strict";function r(n){return n?n.length:0}function t(n,t,e,o=0){for(e=r(n);o<e;++o)t(n[o],o)}function e(n){return n.split("").reverse().join("")}function o(n){var e=n[0];return t(n,function(n){for(;!n.startsWith(e);)e=e.substring(0,r(e)-1)}),r(e)}function u(n,r,e=[]){return t(n,function(n){r(n)&&e.push(n)}),e}var a=parseFloat;function i(n,r){return function(t){var e="";return t.replace(n,function(n,t,o){return e=t.replace(r,"")+"."+(o||"").substring(1)}),a(e)}}var s=i(/^(?:\s*)([+-]?(?:\d+)(?:,\d{3})*)(\.\d*)?$/g,/,/g),c=i(/^(?:\s*)([+-]?(?:\d+)(?:\.\d{3})*)(,\d*)?$/g,/\./g);function f(n){var t=a(n);return!isNaN(t)&&r(""+t)+1>=r(n)?t:NaN}function d(n){var e=[],o=n;return t([f,s,c],function(u){var a=[],i=[];t(n,function(n,r){r=u(n),a.push(r),r||i.push(n)}),r(i)<r(o)&&(o=i,e=a)}),r(u(o,function(n){return n==o[0]}))==r(o)?e:[]}function v(n){if("TABLE"==n.nodeName){for(var a=function(r){var e,o,u=[],a=[];return function n(r,e){e(r),t(r.childNodes,function(r){n(r,e)})}(n,function(n){"TR"==(o=n.nodeName)?(e=[],u.push(e),a.push(n)):"TD"!=o&&"TH"!=o||e.push(n)}),[u,a]}(),i=a[0],s=a[1],c=r(i),f=c>1&&r(i[0])<r(i[1])?1:0,v=f+1,p=i[f],h=r(p),l=[],g=[],N=[],m=v;m<c;++m){for(var T=0;T<h;++T){r(g)<h&&g.push([]);var C=i[m][T],L=C.textContent||C.innerText||"";g[T].push(L.trim())}N.push(m-v)}t(p,function(n,t){l[t]=0;var a=n.classList;a.add("tg-sort-header"),n.addEventListener("click",function(){var n=l[t];!function(){for(var n=0;n<h;++n){var r=p[n].classList;r.remove("tg-sort-asc"),r.remove("tg-sort-desc"),l[n]=0}}(),(n=1==n?-1:+!n)&&a.add(n>0?"tg-sort-asc":"tg-sort-desc"),l[t]=n;var i,f=g[t],m=function(r,t){return n*f[r].localeCompare(f[t])||n*(r-t)},T=function(n){var t=d(n);if(!r(t)){var u=o(n),a=o(n.map(e));t=d(n.map(function(n){return n.substring(u,r(n)-a)}))}return t}(f);(r(T)||r(T=r(u(i=f.map(Date.parse),isNaN))?[]:i))&&(m=function(r,t){var e=T[r],o=T[t],u=isNaN(e),a=isNaN(o);return u&&a?0:u?-n:a?n:e>o?n:e<o?-n:n*(r-t)});var C,L=N.slice();L.sort(m);for(var E=v;E<c;++E)(C=s[E].parentNode).removeChild(s[E]);for(E=v;E<c;++E)C.appendChild(s[v+L[E-v]])})})}}n.addEventListener("DOMContentLoaded",function(){for(var t=n.getElementsByClassName("tg"),e=0;e<r(t);++e)try{v(t[e])}catch(n){}})}(document)</script>
+</body>
+</html>
